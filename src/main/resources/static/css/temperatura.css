@@ -1,0 +1,46 @@
+body{
+    background: #fafafa;
+}
+#temperatura Texto{
+    font-size: 50px;
+}
+#melhor look{
+    background: #3b3b3b;
+}
+#botao temperatura{
+    font-size: 20px;
+    margin-inline: 70px;
+    background-color: #ff0089;
+    color: white; /*dentro do botão*/
+    padding: 15px 150px; /* Espaço dentro: 12px cima/baixo, 35px lados */
+    border: none;/* Remove aquela borda cinza feia do navegador */
+    border-radius: 20px;  /* Deixa as pontas bem arredondadas */
+    transition: 0.3s; /* Faz as mudanças de cor serem suaves */
+    transform: scale(0.98);     /* Ele "encolhe" levemente, como se fosse um botão real */
+}
+.progress-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+/* bolinhas */
+.step {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #ccc;
+}
+
+/* bolinha ativa */
+.step.active {
+    background-color: #ff0089;
+}
+
+/* linha entre elas */
+.line {
+    width: 60px;
+    height: 4px;
+    background-color: #ccc;
+}

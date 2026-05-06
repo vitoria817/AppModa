@@ -1,0 +1,47 @@
+body {
+    background-color: #fff1f1;
+    margin: 0;
+    font-family: Arial, sans-serif;
+
+    /* para centralizar tudo */
+    display: flex;
+    flex-direction: column; /* Itens um embaixo do outro  e n do lado*/
+    justify-content: center; /* Centraliza na vertical (cima/baixo) */
+    align-items: center; /* Centraliza na horizontal (lados) */
+
+    height: 100vh; /* Faz o corpo ocupar 100% da altura da tela */
+    text-align: center;
+}
+
+/* Em vez de usar a classe, vamos falar diretamente com a tag h1 */
+#titulo-home    /*usa # para id*/
+{ color: #ff0089;
+    font-family: 'Cormorant', serif;
+    font-weight: 300;      /* mais fino */
+    letter-spacing: 1px;   /* espaço entre letras */
+    font-size: 55px; /*tamanho do texto*/
+    margin-bottom: 66px; /* Isso cria um 'vácuo' entre o texto e o botão */
+}
+
+/* Aproveita e já deixa o botão bonitão */
+#botão-home {
+    font-size: 20px;
+    margin-inline: 70px;
+    background-color: #ff0089;
+    color: white; /*dentro do botão*/
+    padding: 15px 150px; /* Espaço dentro: 12px cima/baixo, 35px lados */
+    border: none;/* Remove aquela borda cinza feia do navegador */
+    border-radius: 20px;  /* Deixa as pontas bem arredondadas */
+    transition: 0.3s; /* Faz as mudanças de cor serem suaves */
+    transform: scale(0.98);     /* Ele "encolhe" levemente, como se fosse um botão real */
+}
+#textoEstilo{
+    margin-top: -55px;
+    margin-bottom: 55px;
+}
+#imagemCabide{
+    margin-bottom: 10px;
+}
+#subtitulo{
+    margin-bottom: 20px;
+}
