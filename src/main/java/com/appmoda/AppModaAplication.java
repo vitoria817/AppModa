@@ -10,10 +10,11 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @EnableAutoConfiguration
 @ComponentScan
+
 public class AppModaAplication {
     public static void main(String[] args) {
         SpringApplication.run(AppModaAplication.class, args);
     }
-
+//não mexa aqui, ele so executa o sistema, não escreva nada
 }
 

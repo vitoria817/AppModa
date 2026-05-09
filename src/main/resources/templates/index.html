@@ -1,25 +1,102 @@
 <!DOCTYPE html>
+<!--fala pro navegador que o site usa HTML5-->
+
 <html>
+<!--início do site-->
+
 <head>
-<body><!--dentro do body é o visual do site, oq vc vê-->
-<img id="imagemCabide" src="/img/site-imagem-cabide.jpeg"width="300">
-<!--usada para organizar o topo do site-->
-    <meta charset="UTF-8"><!--caracteres pra ficar bonito-->
+    <!--dentro do head o navegador lê
+    aqui ficam configurações do site-->
+
+    <meta charset="UTF-8">
+    <!--permite usar caracteres especiais tipo:
+    ç ã é-->
+
+    <title>Outfit Forecast</title>
+    <!--nome que aparece na aba do navegador-->
+
+    <meta
+            name="description"
+            content="Seu guarda-roupa online inteligente:
+        combina clima, ocasião e cores pra montar looks perfeitos e simplificar sua rotina."
+    >
+    <!--descrição do site pro google e navegador-->
+
     <link rel="stylesheet" href="/css/style.css">
-    <title>Outfit Forecast</title> <!--dentro do head o só o navegador lê-->
-    <meta name="description" content="Seu guarda-roupa online inteligente:
-    combina clima, ocasião e cores pra montar looks perfeitos e simplificar sua rotina.">
+    <!--conecta o HTML com o CSS-->
+
 </head>
-                <h1 id="titulo-home">SEU LOOK</h1><!--indentificar um o id pra n
-                mudar a cor nas outras telas-->
-        <p id="textoEstilo">Seu estilo perfeito, todo dia.</p>
+<!--fim das configurações-->
 
-        <main></main>
-    <footer>
-        <!--botão-->
+<body>
+<!--dentro do body é o visual do site, oq vc vê-->
 
-        <button id="botão-home">começar</button> <!--criar função em js-->
-        <p id="subtitulo">Já tenho uma conta</p>
-    </footer><!--rodapé-->
-    </body>
+<img
+        id="imagemCabide"
+        src="/img/site-imagem-cabide.jpeg"
+        width="300"
+>
+<!--img = imagem
+
+id:
+nome único da imagem pra conseguir mexer nela
+com css ou javascript
+
+src:
+caminho da imagem
+
+width:
+largura da imagem
+-->
+
+<h1 id="titulo-home">
+    SEU LOOK
+</h1>
+
+<!--h1 = título principal da página
+
+id:
+identifica o título pra mudar só ele
+-->
+
+<p id="textoEstilo">
+    Seu estilo perfeito, todo dia.
+</p>
+
+<!--p = parágrafo/texto-->
+
+<main></main>
+
+<!--main = conteúdo principal do site-->
+
+<footer>
+    <!--footer = rodapé do site-->
+
+    <!--botão-->
+    <button id="botao-home">
+        começar
+    </button>
+    <!--button = botão
+
+id:
+nome único do botão
+
+vamos usar esse id no javascript
+pra detectar o clique
+-->
+
+    <p id="subtitulo">
+        Já tenho uma conta
+    </p>
+
+</footer>
+<!--fim do rodapé-->
+
+<!--liga o html com js-->
+<script src="/js/main.js"></script>
+
+</body>
+<!--fim da parte visual-->
+
 </html>
+<!--fim do site-->
