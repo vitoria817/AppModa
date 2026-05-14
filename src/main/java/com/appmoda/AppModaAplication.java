@@ -16,5 +16,10 @@ public class AppModaAplication {
         SpringApplication.run(AppModaAplication.class, args);
     }
 //não mexa aqui, ele so executa o sistema, não escreva nada
+    //CRUD banco de dados
+    //repositorio ta pronto
+    //fazer diagrama
+    //front
+    //classe abstrata
 }
 

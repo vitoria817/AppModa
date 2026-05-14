@@ -1,13 +1,23 @@
 body{
     background: #fafafa;
 }
-#temperatura Texto{
-    font-size: 50px;
+#temperaturaTexto{
+    color: #ff0089;
+    font-weight: 300;
+    letter-spacing: 1px;
+    font-size: 55px;
+    margin-bottom: 66px;
+    text-align: center;
 }
-#melhor look{
-    background: #3b3b3b;
+#melhorLook{
+    text-align: center;
+    font-size:18px ;
 }
-#botao temperatura{
+#botaoTemperatura{
+    display: block;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
     font-size: 20px;
     margin-inline: 70px;
     background-color: #ff0089;
