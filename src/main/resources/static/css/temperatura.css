@@ -1,5 +1,14 @@
 body{
     background: #fafafa;
+    margin: 0;
+    font-family: Arial, sans-serif;
+/*ajudou a centralizar o botão*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
 }
 #temperaturaTexto{
     color: #ff0089;
@@ -14,13 +23,15 @@ body{
     font-size:18px ;
 }
 #botaoTemperatura{
-    display: block;
-    margin: 0 auto;
-    justify-content: center;
-    align-items: center;
     font-size: 20px;
     margin-inline: 70px;
     background-color: #ff0089;
+    padding: 15px 150px;
+    border: none;
+    border-radius: 20px;
+    transition: 0.3s;
+    transform: scale(0.98);
+    cursor: pointer;
     color: white; /*dentro do botão*/
     padding: 15px 150px; /* Espaço dentro: 12px cima/baixo, 35px lados */
     border: none;/* Remove aquela borda cinza feia do navegador */

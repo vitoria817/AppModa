@@ -1,14 +1,16 @@
-const botao = document.getElementById("botao-home");
-// pega o botão do HTML pelo id e guarda na variável
 
-if (botao) {
-    // garante que o botão existe antes de tentar usá-lo
+const botaoHome = document.getElementById("botao-home");
 
-    botao.addEventListener("click", function () {
-        // detecta o clique no botão
-
+if (botaoHome) {
+    botaoHome.addEventListener("click", function () {
         window.location.href = "/temperatura";
-        // quando clicar, o navegador vai para a rota do Spring Boot
+    });
+}
 
+const botaoTemperatura = document.getElementById("botaoTemperatura");
+
+if (botaoTemperatura) {
+    botaoTemperatura.addEventListener("click", function () {
+        window.location.href = "/guarda-roupa";
     });
 }
