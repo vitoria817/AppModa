@@ -1,0 +1,214 @@
+body {
+    background-color: #fff9fb;
+    margin: 0;
+    font-family: 'Georgia', serif;
+}
+
+/* cabeçalho com título e foto do usuário */
+.topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    border-bottom: 2px solid #ffe0ef;
+    background: white;
+}
+
+#TituloGuarda-roupa {
+    color: #ff0089;
+    font-weight: 300;
+    font-size: 28px;
+    margin: 0;
+}
+
+/* foto redonda do usuário no topo */
+.usuario-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: #555;
+}
+
+.foto-usuario {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ff0089;
+}
+
+/* área principal */
+.conteudo {
+    max-width: 700px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.subtitulo {
+    color: #aaa;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+/* mensagem de guarda-roupa vazio */
+.vazio {
+    text-align: center;
+    color: #bbb;
+    margin: 60px 0;
+    font-size: 16px;
+}
+
+/* grade de cards de roupas */
+.grade-roupas {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 16px;
+    margin-bottom: 30px;
+}
+
+/* card de cada peça de roupa */
+.card-roupa {
+    background: white;
+    border: 1px solid #ffe0ef;
+    border-radius: 16px;
+    padding: 16px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(255,0,137,0.06);
+    transition: transform 0.2s;
+}
+
+.card-roupa:hover {
+    transform: translateY(-3px);
+}
+
+.nome-roupa {
+    font-weight: 600;
+    color: #333;
+    margin: 0 0 6px;
+    font-size: 15px;
+}
+
+.cor-roupa {
+    color: #ff0089;
+    font-size: 13px;
+    margin: 0 0 6px;
+}
+
+.temp-roupa {
+    color: #999;
+    font-size: 12px;
+    margin: 0;
+}
+
+/* botão de adicionar peça */
+#botaoAdicionar {
+    display: block;
+    margin: 0 auto;
+    background-color: #ff0089;
+    color: white;
+    font-size: 16px;
+    padding: 14px 60px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#botaoAdicionar:hover {
+    background-color: #e0007a;
+    transform: scale(1.02);
+}
+
+/* fundo escuro do modal */
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+
+/* caixa branca do modal */
+.modal-conteudo {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    width: 340px;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal-conteudo h3 {
+    color: #ff0089;
+    font-weight: 300;
+    font-size: 22px;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+/* campos do formulário */
+.modal-conteudo label {
+    display: block;
+    font-size: 13px;
+    color: #888;
+    margin-top: 14px;
+    margin-bottom: 4px;
+}
+
+.modal-conteudo input,
+.modal-conteudo select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ffe0ef;
+    border-radius: 10px;
+    font-size: 14px;
+    box-sizing: border-box;
+    outline: none;
+    transition: border 0.2s;
+}
+
+.modal-conteudo input:focus,
+.modal-conteudo select:focus {
+    border-color: #ff0089;
+}
+
+/* botões do modal */
+.botoes-modal {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.botoes-modal button {
+    flex: 1;
+    padding: 12px;
+    border-radius: 12px;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+/* botão cancelar */
+.botoes-modal button[type="button"] {
+    background: #f0f0f0;
+    color: #555;
+}
+
+/* botão salvar */
+.botoes-modal button[type="submit"] {
+    background: #ff0089;
+    color: white;
+}
+
+.botoes-modal button:hover {
+    opacity: 0.85;
+}
+
+/* esconde elementos */
+.oculto {
+    display: none;
+}

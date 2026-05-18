@@ -2,28 +2,60 @@ package com.appmoda.model;
 
 import javax.persistence.*;
 
-// Representa a tabela "usuarios" no banco de dados
 @Entity
 @Table(name = "usuarios")
 public class UsuarioModel {
 
-    // Coluna ID — gerada automaticamente pelo banco
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    // Coluna email — armazena o email do usuário
+    @Column(unique = true)
     private String email;
 
-    // Retorna o ID do usuário
-    public Long getId() { return id; }
+    private String nome;
 
-    // Define o ID do usuário
-    public void setId(Long id) { this.id = id; }
+    private String foto;
 
-    // Retorna o email do usuário
-    public String getEmail() { return email; }
+    private String provider;
 
-    // Define o email do usuário
-    public void setEmail(String email) { this.email = email; }
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
+    }
+
+    public String getProvider() {
+        return provider;
+    }
+
+    public void setProvider(String provider) {
+        this.provider = provider;
+    }
 }

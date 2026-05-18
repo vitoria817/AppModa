@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <!-- fala pro navegador que usa HTML5 -->
-<html>
-<!-- início do site -->
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 <head>
     <!-- configurações do site -->
     <meta charset="UTF-8">
@@ -33,22 +32,38 @@
     Seu estilo perfeito, todo dia.
 </p>
 <!-- texto -->
+
 <main></main>
 <!-- conteúdo principal -->
+
 <footer>
     <!-- rodapé -->
-    <button id="botao-home">
-        começar
-    </button>
-    <!-- botão -->
-    <p id="subtitulo">
-        Já tenho uma conta
-    </p>
+
+    <!-- se o usuário JÁ está logado: mostra botão de começar direto -->
+    <div th:if="${nomeUsuario}">
+        <p id="boasVindas">Olá, <strong th:text="${nomeUsuario}">Usuário</strong>! 👋</p>
+        <a href="/temperatura">
+            <button id="botao-home">começar</button>
+        </a>
+        <a href="/logout" id="subtitulo-sair">Sair da conta</a>
+    </div>
+
+    <!-- se o usuário NÃO está logado: mostra botão do Google -->
+    <div th:unless="${nomeUsuario}">
+        <!-- botão que inicia o login com o Google -->
+        <a href="/oauth2/authorization/google">
+            <button id="botao-google">
+                <img src="https://www.google.com/favicon.ico" width="20" alt="Google">
+                Entrar com o Google
+            </button>
+        </a>
+        <p id="subtitulo-conta">Já tenho uma conta</p>
+    </div>
+
 </footer>
 
 <script src="/js/main.js"></script>
 <!-- conecta HTML com JS -->
 
 </body>
-
 </html>

@@ -1,52 +1,104 @@
-body{
+body {
     background: #fafafa;
     margin: 0;
-    font-family: Arial, sans-serif;
-/*ajudou a centralizar o botão*/
+    font-family: 'Georgia', serif;
+    /* centraliza tudo na tela */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     text-align: center;
 }
-#temperaturaTexto{
+
+#temperaturaTexto {
     color: #ff0089;
     font-weight: 300;
     letter-spacing: 1px;
-    font-size: 55px;
-    margin-bottom: 66px;
+    font-size: 40px;
+    margin-bottom: 10px;
     text-align: center;
 }
-#melhorLook{
+
+#melhorLook {
     text-align: center;
-    font-size:18px ;
+    font-size: 18px;
+    color: #888;
+    margin-bottom: 20px;
 }
-#botaoTemperatura{
+
+/* número grande que mostra a temperatura escolhida */
+#valorTemperatura {
+    font-size: 72px;
+    font-weight: 700;
+    color: #ff0089;
+    transition: color 0.4s;
+    margin-bottom: 20px;
+    letter-spacing: -2px;
+}
+
+/* container do slider com os labels de frio/calor */
+.slider-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 40px;
+    height: 220px;
+}
+
+/* labels de frio e calor nas pontas */
+.labels {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 220px;
+    margin-left: 20px;
+    font-size: 14px;
+    color: #aaa;
+}
+
+/* slider vertical */
+#sliderTemp {
+    writing-mode: vertical-lr;
+    direction: rtl;
+    width: 40px;
+    height: 200px;
+    cursor: pointer;
+    accent-color: #ff0089;
+    background: linear-gradient(to top, #ff0089, #ffb3d9);
+    border-radius: 20px;
+    outline: none;
+}
+
+#botaoTemperatura {
     font-size: 20px;
-    margin-inline: 70px;
     background-color: #ff0089;
-    padding: 15px 150px;
+    color: white;
+    padding: 15px 100px;
     border: none;
     border-radius: 20px;
     transition: 0.3s;
     transform: scale(0.98);
     cursor: pointer;
-    color: white; /*dentro do botão*/
-    padding: 15px 150px; /* Espaço dentro: 12px cima/baixo, 35px lados */
-    border: none;/* Remove aquela borda cinza feia do navegador */
-    border-radius: 20px;  /* Deixa as pontas bem arredondadas */
-    transition: 0.3s; /* Faz as mudanças de cor serem suaves */
-    transform: scale(0.98);     /* Ele "encolhe" levemente, como se fosse um botão real */
+    margin-bottom: 40px;
 }
+
+#botaoTemperatura:hover {
+    transform: scale(1.02);
+    background-color: #e0007a;
+}
+
+/* barra de progresso no topo */
 .progress-bar {
+    position: fixed;
+    top: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 50px;
 }
 
-/* bolinhas */
+/* bolinhas da barra */
 .step {
     width: 20px;
     height: 20px;
@@ -59,9 +111,14 @@ body{
     background-color: #ff0089;
 }
 
-/* linha entre elas */
+/* linha entre as bolinhas */
 .line {
     width: 60px;
     height: 4px;
     background-color: #ccc;
+}
+
+/* linha já percorrida */
+.line.active {
+    background-color: #ff0089;
 }

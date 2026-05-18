@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Sugestão de Look - Outfit Forecast</title>
+    <link rel="stylesheet" href="/css/sugestao.css">
+</head>
+<body>
+
+<!-- barra de progresso: terceira etapa (última) -->
+<div class="progress-bar">
+    <div class="step active"></div>
+    <div class="line active"></div>
+    <div class="step active"></div>
+    <div class="line active"></div>
+    <div class="step active"></div>
+</div>
+
+<!-- temperatura escolhida -->
+<h1 id="tituloSugestao">
+    Hoje está <span id="tempDestaque" th:text="${temperatura} + '°C'">20°C</span>
+</h1>
+
+<p id="subtituloSugestao">Aqui está o look perfeito para você hoje 👇</p>
+
+<!-- roupas sugeridas -->
+<div class="grade-sugestao">
+
+    <!-- se não houver roupas cadastradas ou nenhuma adequada -->
+    <div th:if="${roupasSugeridas == null or #lists.isEmpty(roupasSugeridas)}" class="sem-sugestao">
+        <p>😕 Nenhuma roupa cadastrada serve para essa temperatura.</p>
+        <a href="/guarda-roupa">Adicionar roupas ao guarda-roupa</a>
+    </div>
+
+    <!-- mostra cada roupa sugerida -->
+    <div class="card-sugestao" th:each="roupa : ${roupasSugeridas}">
+        <div class="icone-roupa">👕</div>
+        <!-- usa o método descricao() que demonstra polimorfismo -->
+        <p class="nome-sugestao" th:text="${roupa.descricao()}">Descrição</p>
+        <p class="cor-sugestao" th:text="${roupa.cor}">Cor</p>
+        <p class="temp-sugestao">
+            🌡️ <span th:text="${roupa.tempMin}">0</span>° a
+            <span th:text="${roupa.tempMax}">0</span>°C
+        </p>
+    </div>
+
+</div>
+
+<!-- botões de ação -->
+<div class="acoes">
+    <!-- volta para escolher outra temperatura -->
+    <a href="/temperatura" class="botao-secundario">← Mudar temperatura</a>
+    <!-- vai para o guarda-roupa -->
+    <a href="/guarda-roupa" class="botao-principal">Ver guarda-roupa</a>
+</div>
+
+<script>
+    /* muda a cor do destaque da temperatura conforme o valor */
+    const temp = parseInt(document.getElementById('tempDestaque').textContent);
+    const destaque = document.getElementById('tempDestaque');
+    if (temp <= 10) {
+        destaque.style.color = '#4fc3f7'; /* azul frio */
+    } else if (temp <= 25) {
+        destaque.style.color = '#ff0089'; /* rosa neutro */
+    } else {
+        destaque.style.color = '#ff5722'; /* laranja quente */
+    }
+</script>
+
+</body>
+</html>

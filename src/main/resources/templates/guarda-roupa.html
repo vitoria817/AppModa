@@ -1,13 +1,131 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <link rel="stylesheet" href="/css/style.css">
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Guarda-roupa - Outfit Forecast</title>
+    <link rel="stylesheet" href="/css/guarda-roupa.css">
 </head>
 <body>
 
-<h1>guarda roupa</h1>
-<script src="/js/main.js"></script>
+<!-- cabeçalho com nome do usuário -->
+<header class="topo">
+    <h2 id="TituloGuarda-roupa">👗 Guarda-roupa</h2>
+    <!-- mostra a foto e nome do usuário logado -->
+    <div class="usuario-info" th:if="${nomeUsuario}">
+        <img th:src="${fotoUsuario}" class="foto-usuario" alt="foto">
+        <span th:text="${nomeUsuario}">Usuário</span>
+    </div>
+</header>
+
+<!-- lista de roupas cadastradas -->
+<main class="conteudo">
+
+    <p class="subtitulo">Todas as suas peças</p>
+
+    <!-- mostra mensagem se não tiver nenhuma roupa cadastrada -->
+    <div th:if="${#lists.isEmpty(roupas)}" class="vazio">
+        <p>Você ainda não tem roupas cadastradas. Adicione abaixo! 👇</p>
+    </div>
+
+    <!-- lista as roupas do usuário -->
+    <div class="grade-roupas">
+        <div class="card-roupa" th:each="roupa : ${roupas}">
+            <!-- nome e cor da peça -->
+            <p class="nome-roupa" th:text="${roupa.nome}">Nome</p>
+            <p class="cor-roupa" th:text="${roupa.cor}">Cor</p>
+            <!-- temperatura ideal -->
+            <p class="temp-roupa">
+                🌡️ <span th:text="${roupa.tempMin}">0</span>° a
+                <span th:text="${roupa.tempMax}">0</span>°C
+            </p>
+        </div>
+    </div>
+
+    <!-- botão para abrir o formulário de adicionar roupa -->
+    <button id="botaoAdicionar" onclick="abrirModal()">+ Adicionar peça</button>
+
+</main>
+
+<!-- modal (popup) para adicionar nova roupa -->
+<div id="modal" class="modal oculto">
+    <div class="modal-conteudo">
+        <h3>Nova peça</h3>
+
+        <!-- formulário que envia para o controller /guarda-roupa/adicionar -->
+        <form action="/guarda-roupa/adicionar" method="post">
+
+            <!-- tipo de roupa: camiseta ou calça -->
+            <label>Tipo</label>
+            <select name="tipo" id="selectTipo" onchange="mostrarCampoExtra()">
+                <option value="camiseta">Camiseta</option>
+                <option value="calca">Calça</option>
+            </select>
+
+            <!-- nome da peça -->
+            <label>Nome</label>
+            <input type="text" name="nome" placeholder="Ex: Camiseta branca" required>
+
+            <!-- cor da peça -->
+            <label>Cor</label>
+            <input type="text" name="cor" placeholder="Ex: Branco" required>
+
+            <!-- temperatura mínima que a peça é adequada -->
+            <label>Temperatura mínima (°C)</label>
+            <input type="number" name="tempMin" placeholder="Ex: 15" required>
+
+            <!-- temperatura máxima que a peça é adequada -->
+            <label>Temperatura máxima (°C)</label>
+            <input type="number" name="tempMax" placeholder="Ex: 40" required>
+
+            <!-- campo extra: manga (só aparece para camiseta) -->
+            <div id="campoCamiseta">
+                <label>Tipo de manga</label>
+                <select name="manga">
+                    <option value="curta">Manga curta</option>
+                    <option value="longa">Manga longa</option>
+                    <option value="sem manga">Sem manga</option>
+                </select>
+            </div>
+
+            <!-- campo extra: tipo de calça (só aparece para calça) -->
+            <div id="campoCalca" class="oculto">
+                <label>Tipo de calça</label>
+                <select name="tipocalca">
+                    <option value="jeans">Jeans</option>
+                    <option value="moletom">Moletom</option>
+                    <option value="social">Social</option>
+                    <option value="legging">Legging</option>
+                </select>
+            </div>
+
+            <!-- botões do formulário -->
+            <div class="botoes-modal">
+                <button type="button" onclick="fecharModal()">Cancelar</button>
+                <button type="submit">Salvar</button>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<script>
+    /* abre o popup de adicionar roupa */
+    function abrirModal() {
+        document.getElementById('modal').classList.remove('oculto');
+    }
+
+    /* fecha o popup */
+    function fecharModal() {
+        document.getElementById('modal').classList.add('oculto');
+    }
+
+    /* mostra o campo certo conforme o tipo selecionado */
+    function mostrarCampoExtra() {
+        const tipo = document.getElementById('selectTipo').value;
+        document.getElementById('campoCamiseta').classList.toggle('oculto', tipo !== 'camiseta');
+        document.getElementById('campoCalca').classList.toggle('oculto', tipo !== 'calca');
+    }
+</script>
+
 </body>
 </html>

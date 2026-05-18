@@ -2,14 +2,15 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <title>Temperatura - Outfit Forecast</title>
     <link rel="stylesheet" href="/css/temperatura.css">
 </head>
 <body>
 
-<!-- barra -->
+<!-- barra de progresso: mostra em qual etapa o usuário está -->
 <div class="progress-bar">
     <div class="step active"></div>
-    <div class="line"></div>
+    <div class="line active"></div>
     <div class="step"></div>
     <div class="line"></div>
     <div class="step"></div>
@@ -17,9 +18,54 @@
 
 <h1 id="temperaturaTexto">Qual a temperatura de hoje?</h1>
 <p id="melhorLook">Isso nos ajuda a sugerir um melhor look pra você.</p>
-<button id="botaoTemperatura">Próximo
-</button>
 
-<script src="/js/main.js"></script>
+<!-- mostra o valor atual da temperatura -->
+<div id="valorTemperatura">20°C</div>
+
+<!-- slider que o usuário arrasta pra cima e pra baixo -->
+<div class="slider-container">
+    <input
+            type="range"
+            id="sliderTemp"
+            min="-10"
+            max="45"
+            value="20"
+            step="1"
+            orient="vertical"
+    >
+    <!-- emojis de frio e calor nas pontas -->
+    <div class="labels">
+        <span class="label-top">🔥 45°</span>
+        <span class="label-bottom">🥶 -10°</span>
+    </div>
+</div>
+
+<!-- botão que envia a temperatura escolhida para a tela de sugestão -->
+<button id="botaoTemperatura" onclick="irParaSugestao()">Próximo</button>
+
+<script>
+    /* atualiza o número mostrado conforme o usuário move o slider */
+    const slider = document.getElementById('sliderTemp');
+    const valor = document.getElementById('valorTemperatura');
+
+    slider.addEventListener('input', function () {
+        valor.textContent = this.value + '°C';
+        /* muda a cor do número conforme a temperatura */
+        if (this.value <= 10) {
+            valor.style.color = '#4fc3f7'; /* azul frio */
+        } else if (this.value <= 25) {
+            valor.style.color = '#ff0089'; /* rosa neutro */
+        } else {
+            valor.style.color = '#ff5722'; /* laranja quente */
+        }
+    });
+
+    /* manda o usuário para a tela de sugestão com a temperatura escolhida */
+    function irParaSugestao() {
+        const temp = slider.value;
+        window.location.href = '/sugestao?temperatura=' + temp;
+    }
+</script>
+
 </body>
 </html>

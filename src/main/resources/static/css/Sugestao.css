@@ -1,0 +1,169 @@
+body {
+    background: #fff9fb;
+    margin: 0;
+    font-family: 'Georgia', serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding-bottom: 40px;
+}
+
+/* título com a temperatura */
+#tituloSugestao {
+    color: #333;
+    font-weight: 300;
+    font-size: 36px;
+    margin-top: 80px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* destaque da temperatura (cor muda via JS) */
+#tempDestaque {
+    font-weight: 700;
+    font-size: 44px;
+}
+
+#subtituloSugestao {
+    color: #aaa;
+    font-size: 16px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* grade de cards de sugestão */
+.grade-sugestao {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+    max-width: 700px;
+    padding: 0 20px;
+}
+
+/* card de cada roupa sugerida */
+.card-sugestao {
+    background: white;
+    border: 2px solid #ffe0ef;
+    border-radius: 20px;
+    padding: 24px 20px;
+    text-align: center;
+    width: 160px;
+    box-shadow: 0 4px 12px rgba(255,0,137,0.08);
+    transition: transform 0.2s;
+}
+
+.card-sugestao:hover {
+    transform: translateY(-4px);
+}
+
+/* ícone da roupa */
+.icone-roupa {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.nome-sugestao {
+    font-weight: 600;
+    color: #333;
+    font-size: 15px;
+    margin: 0 0 6px;
+}
+
+.cor-sugestao {
+    color: #ff0089;
+    font-size: 13px;
+    margin: 0 0 6px;
+}
+
+.temp-sugestao {
+    color: #bbb;
+    font-size: 12px;
+    margin: 0;
+}
+
+/* mensagem quando não há sugestão */
+.sem-sugestao {
+    text-align: center;
+    color: #bbb;
+    padding: 40px;
+    font-size: 16px;
+}
+
+.sem-sugestao a {
+    color: #ff0089;
+    display: block;
+    margin-top: 10px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+/* botões de ação na parte de baixo */
+.acoes {
+    display: flex;
+    gap: 14px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.botao-principal {
+    background: #ff0089;
+    color: white;
+    padding: 14px 40px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.botao-principal:hover {
+    background: #e0007a;
+    transform: scale(1.02);
+}
+
+.botao-secundario {
+    background: white;
+    color: #ff0089;
+    border: 2px solid #ff0089;
+    padding: 14px 30px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.botao-secundario:hover {
+    background: #fff0f8;
+}
+
+/* barra de progresso */
+.progress-bar {
+    position: fixed;
+    top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.step {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #ccc;
+}
+
+.step.active {
+    background-color: #ff0089;
+}
+
+.line {
+    width: 60px;
+    height: 4px;
+    background-color: #ccc;
+}
+
+.line.active {
+    background-color: #ff0089;
+}

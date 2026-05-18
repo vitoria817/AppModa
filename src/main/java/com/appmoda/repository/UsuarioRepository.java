@@ -1,15 +1,13 @@
 package com.appmoda.repository;
 
-// Acessa o banco de dados
-// Salvar, buscar, deletar — tudo automático pelo JpaRepository
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
 import com.appmoda.model.UsuarioModel;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-// Interface que faz o CRUD do usuário automaticamente
-@Repository
+import java.util.Optional;
+
+/* repositório que faz as operações no banco para usuários */
 public interface UsuarioRepository extends JpaRepository<UsuarioModel, Long> {
 
-    // Busca usuário pelo email no banco
-    UsuarioModel findByEmail(String email);
+    /* busca usuário pelo email */
+    Optional<UsuarioModel> findByEmail(String email);
 }
